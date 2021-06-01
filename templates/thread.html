@@ -1,0 +1,106 @@
+ {% autoescape false %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bs/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/styles.css') }}" />
+
+</head>
+
+<body class="loggedin">
+    <nav class="navtop">
+        <div>
+            <h1>Forum</h1>
+            <a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Homepage</a>
+            <a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
+            <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>
+
+
+
+<div class="row">
+    <div class="col-lg-4">
+        <a href="{{ url_for('home') }}" class="btn btn-default btn-sm">
+            <i></i> Back to Homepage
+        </a>
+    </div>
+</div>
+{% if username!='' %}
+<div class="row pad">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% for info in data %}
+                        <p class="big"> Question by {{ info.username }} </p>
+                        <h3 class="panel-title" class={{info.thread}}>
+                            {{ info.thread }}
+                        </h3>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-6">Answers</div>
+            <div class="col-lg-6">Answers by</div>
+        </div>
+    </div>
+    <div class="panel-body">
+        {% for reply in replies %}
+        <div class="col-lg-6">
+            <h3 class="panel-title" class={{reply.message}}>
+                {{ reply.message }}
+
+            </h3>
+        </div>
+        <div class="col-lg-6">
+            <h3 class="panel-title">
+                {{ reply.username}}
+                </a>
+            </h3>
+
+
+
+        </div> {% endfor %}
+    </div>
+</div>
+{% for reply in replies %} {% endfor %}
+
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <form method="POST">
+
+            <input type="text" name="message" placeholder="Message" autocomplete="off" />
+            <input type="submit" value="Submit new comment" />
+        </form>
+    </div>
+</div>
+{% endif %} {% endautoescape %}

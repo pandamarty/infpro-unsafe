@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Home Page</h2>
+<p>Welcome, {{ username }}!</p>
+<br>
+{% if username!='' %}
+<div class="">
+    <div class="">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                  <!--  <div class="col-lg-4">Name of user</div>-->
+                    <div class="col-lg-6">Questions</div>
+                </div>
+            </div>
+			
+            {% for threads in data %}
+            <div class="panel-body">
+                    <div class="col-lg-6">
+                        <h3 class="panel-title">
+                               {{ threads.thread}}
+                            </a>
+                           
+                        </h3>
+                    </div>
+					
+                    <div class="col-lg-6">
+                        <p>
+						<a href="{{ url_for('reply', threadid=threads.id ) }}">
+                                <i></i> Reply
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-6">
+		<form method="POST">
+			<textarea align="left"  name="thread" id="thread" class="form-control"></textarea>
+			<div class="msg">{{ msg }}</div>
+			<button type="submit" align="right" class="btn btn-primary">Submit question</button>
+			<div class="msg">{{ msg }}</div>
+		</form>
+	</div>
+	
+
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,5 @@
+Palette
+Title: #EC4067
+Title-shadow: #ec4067
+
+btn-primary-border: #F490A7
